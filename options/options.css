@@ -1,0 +1,12 @@
+#updatedMessage {
+  font-size: 1.5em;
+  color: green;
+}
+
+.hidden {
+  display: none;
+}
+
+.shown {
+  display: inline;
+}
