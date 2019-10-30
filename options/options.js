@@ -13,6 +13,16 @@ async function updateUI() {
 }
 
 /**
+ * Show and hide a message when the changes are saved
+ */
+async function msgUpdated() {
+  var updatedMessage = document.querySelector("#updatedMessage");
+  updatedMessage.classList.replace("hidden", "shown");
+  //console.log("Shortcut Updated");
+  setTimeout(function(){ updatedMessage.classList.replace("shown", "hidden"); }, 3000);
+}
+
+/**
  * Update the shortcut based on the value in the textbox.
  */
 async function updateShortcut() {
@@ -20,16 +30,7 @@ async function updateShortcut() {
     name: commandName,
     shortcut: document.querySelector('#shortcut').value
   });
-  toggleMessage();
-  console.log("Shortcut Updated");
-  
-  toggleMessage();
-}
-
-async function toggleMessage() {
-  var updatedMessage = document.querySelector("#updatedMessage");
-  updatedMessage.classList.toggle("hidden");
-  updatedMessage.classList.toggle("show");
+  msgUpdated();
 }
 
 /**
@@ -38,6 +39,7 @@ async function toggleMessage() {
 async function resetShortcut() {
   await browser.commands.reset(commandName);
   updateUI();
+  msgUpdated();
 }
 
 /**
@@ -46,7 +48,7 @@ async function resetShortcut() {
 document.addEventListener('DOMContentLoaded', updateUI);
 
 /**
- * Handle update and reset button clicks
+ * Handle update and reset
  */
-document.querySelector('#shortcut').addEventListener('change', updateShortcut)
-document.querySelector('#reset').addEventListener('click', resetShortcut)
+document.querySelector('#shortcut').addEventListener('change', updateShortcut);
+document.querySelector('#reset').addEventListener('click', resetShortcut);
