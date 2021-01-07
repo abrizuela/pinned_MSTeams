@@ -52,3 +52,9 @@ document.addEventListener('DOMContentLoaded', updateUI);
  */
 document.querySelector('#shortcut').addEventListener('change', updateShortcut);
 document.querySelector('#reset').addEventListener('click', resetShortcut);
+/**
+ * Handle the keyboard shortcut capture events
+ */
+document.querySelector('#shortcut').addEventListener('focus', captureKeys);
+document.querySelector('#shortcut').addEventListener('keydown', startCaptureShortcut);
+document.querySelector('#shortcut').addEventListener('keyup', endCaptureShortcut);

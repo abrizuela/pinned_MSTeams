@@ -1,10 +1,19 @@
 #updatedMessage {
-  color: white;
-  background-color: green;
+  color: #ffffff;
+  background-color: #27aa27;
   padding: 2px 10px;
   border-radius: 5px;
+  border-color: #008000;
   transition: 1s ease;
   display: inline;
+}
+
+#reset {
+  color: #ffffff;
+  background-color: #f04e4e;
+  padding: 1px 10px;
+  border-radius: 5px;
+  border-color:#f04e4e;
 }
 
 .hidden {
